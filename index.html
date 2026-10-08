@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Petrec Matei - student, developer. Cryptography, mobile apps and AI." />
+    <title>Petrec Matei</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Apply the saved theme before the page paints, so there is no flash -->
+    <script>
+      try {
+        const saved = localStorage.getItem("theme");
+        if (saved) document.documentElement.dataset.theme = saved;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <!-- ==================================== -->
+    <!-- Navigation -->
+    <!-- ==================================== -->
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a href="#top" class="logo">Petrec Matei</a>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">◐</button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="wrap">
+      <!-- ==================================== -->
+      <!-- Intro -->
+      <!-- ==================================== -->
+      <section class="hero">
+        <p class="eyebrow">Hi, I'm</p>
+        <h1>Petrec Matei.</h1>
+        <p class="lead">
+          I'm a student who builds web and mobile apps. I'm interested in
+          <span class="hl">cryptography</span>, <span class="hl">mobile apps</span>
+          and <span class="hl">AI</span>.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn" href="https://github.com/Petrecm" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </section>
+
+      <!-- ==================================== -->
+      <!-- About -->
+      <!-- ==================================== -->
+      <section id="about">
+        <h2>About</h2>
+        <div class="timeline">
+          <div class="item">
+            <span class="dot"></span>
+            <h3>Master's - MTI, ACS</h3>
+            <p>Faculty of Automatic Control and Computers, Politehnica Bucharest.</p>
+          </div>
+          <div class="item">
+            <span class="dot"></span>
+            <h3>Bachelor's - FILS</h3>
+            <p>Faculty of Engineering in Foreign Languages, Politehnica Bucharest.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================== -->
+      <!-- Projects -->
+      <!-- ==================================== -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>KidConnect</h3>
+            <p>
+              One platform for everything a private kindergarten needs, used by
+              teachers, parents and admins. It covers check-in and check-out,
+              a grades timeline, notifications and payments.
+            </p>
+            <ul class="tags">
+              <li>Check-in / out</li>
+              <li>Grades timeline</li>
+              <li>Notifications</li>
+              <li>Payments</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Library Platform</h3>
+            <p>
+              A platform for running a library: renting books out, keeping
+              track of them, and adding new stock.
+            </p>
+            <ul class="tags">
+              <li>Rentals</li>
+              <li>Management</li>
+              <li>Stock</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================================== -->
+      <!-- Skills -->
+      <!-- ==================================== -->
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skills">
+          <li>TypeScript</li>
+          <li>Java</li>
+          <li>HTML</li>
+          <li>CSS</li>
+        </ul>
+      </section>
+
+      <!-- ==================================== -->
+      <!-- Contact -->
+      <!-- ==================================== -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>You can find my code and follow what I'm working on on GitHub.</p>
+        <a class="btn primary" href="https://github.com/Petrecm" target="_blank" rel="noopener">github.com/Petrecm</a>
+      </section>
+    </main>
+
+    <footer class="wrap footer">
+      <p>© <span id="year"></span> Petrec Matei. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+      // Footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Light / dark toggle, remembered between visits
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const root = document.documentElement;
+        const isDark =
+          root.dataset.theme === "dark" ||
+          (!root.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
+        root.dataset.theme = isDark ? "light" : "dark";
+        try {
+          localStorage.setItem("theme", root.dataset.theme);
+        } catch (e) {}
+      });
+    </script>
+  </body>
+</html>
